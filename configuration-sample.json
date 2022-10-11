@@ -1,0 +1,19 @@
+{
+  "fhirVersion": "R4",
+  "processingError":"raise",
+  "fhirPathRules": [
+    {"path": "nodesByType('Extension')", "method": "redact"},
+    {"path": "Organization.identifier", "method": "keep"},
+    {"path": "Patient.identifier", "method": "redact"},
+    {"path": "nodesByType('Address').country", "method": "keep"},
+    {"path": "Resource.id", "method": "cryptoHash"},
+    {"path": "nodesByType('Reference').reference", "method": "cryptoHash"},
+    {"path": "Group.name", "method": "redact"}
+  ],
+  "parameters": {
+    "dateShiftKey": "",
+    "cryptoHashKey": "",
+    "encryptKey": "",
+    "enablePartialAgesForRedact": true
+  }
+}
